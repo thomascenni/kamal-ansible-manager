@@ -1,0 +1,10 @@
+[mosquitto-openssl]
+enabled  = true
+port     = 8883
+filter   = mosquitto-openssl
+logpath  = /var/lib/docker/containers/*/*-json.log
+backend  = auto
+maxretry = 3
+findtime = 60
+bantime  = 86400
+

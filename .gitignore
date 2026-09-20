@@ -1,2 +1,7 @@
 hosts.ini
 roles/scaleway/vars/main.yml
+
+# Bloquer tous les fichiers d'inventaire spécifiques
+hosts-*.ini
+*.ini
+!hosts.ini.example

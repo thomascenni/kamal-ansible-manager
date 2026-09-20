@@ -47,3 +47,21 @@
       - snap
     state: absent
     purge: true
+
+- name: Copy Mosquitto Fail2ban filter
+  ansible.builtin.copy:
+    src: files/mosquitto-openssl.conf
+    dest: /etc/fail2ban/filter.d/mosquitto-openssl.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Start fail2ban
+
+- name: Copy Mosquitto Fail2ban jail
+  ansible.builtin.copy:
+    src: files/mosquitto-jail.local
+    dest: /etc/fail2ban/jail.d/mosquitto.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Start fail2ban
